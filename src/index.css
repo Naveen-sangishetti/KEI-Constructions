@@ -1,0 +1,26 @@
+/* Main CSS - detailed implementation later */
+:root {
+  --color-bg: #f5f0e6; /* Warm beige */
+  --color-text: #2c2a26; /* Dark walnut/charcoal */
+  --color-accent: #cbb89d; /* Soft gold/sand */
+  --font-serif: "Playfair Display", serif;
+  --font-sans: "Inter", sans-serif;
+}
+
+*, *::before, *::after {
+  box-sizing: border-box;
+}
+
+body {
+  margin: 0;
+  padding: 0;
+  background-color: var(--color-bg);
+  color: var(--color-text);
+  font-family: var(--font-sans);
+  overflow-x: hidden;
+  -webkit-font-smoothing: antialiased;
+}
+
+canvas {
+    display: block; /* Fix canvas scollbar issues */
+}

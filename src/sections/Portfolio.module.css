@@ -1,0 +1,60 @@
+.portfolioSection {
+  padding: 6rem 0;
+  background-color: var(--color-bg);
+}
+
+.header {
+  font-family: var(--font-serif);
+  font-size: 3rem;
+  text-align: center;
+  margin-bottom: 4rem;
+}
+
+.list {
+  display: flex;
+  flex-direction: column;
+  gap: 10rem;
+}
+
+.project {
+  position: relative;
+  width: 100%;
+  height: 80vh;
+  overflow: hidden;
+}
+
+.wireImage, .realImage {
+  position: absolute;
+  top: 0;
+  left: 0;
+  width: 100%;
+  height: 100%;
+  object-fit: cover;
+}
+
+.wireImage {
+  z-index: 1;
+  filter: grayscale(100%) opacity(0.5);
+}
+
+.realImage {
+  z-index: 2;
+  /* clip-path controlled by GSAP */
+}
+
+.info {
+  position: absolute;
+  bottom: 2rem;
+  left: 2rem;
+  z-index: 10;
+  background: rgba(255,255,255,0.8);
+  padding: 1rem 2rem;
+  backdrop-filter: blur(5px);
+}
+
+.info h3 {
+  font-family: var(--font-serif);
+  font-size: 1.5rem;
+  margin: 0;
+  color: #000;
+}

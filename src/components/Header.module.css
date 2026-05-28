@@ -1,0 +1,370 @@
+.header {
+  position: fixed;
+  top: 0;
+  left: 0;
+  right: 0;
+  z-index: 1000;
+  padding: 1.5rem 3rem;
+  transition: all 0.4s ease;
+  transform: translateY(0);
+}
+
+/* Auto-hide states */
+.header.visible {
+  transform: translateY(0);
+}
+
+.header.hidden {
+  transform: translateY(-100%);
+}
+
+.headerContainer {
+  max-width: 1600px;
+  margin: 0 auto;
+  display: flex;
+  align-items: center;
+  justify-content: space-between;
+  gap: 2rem;
+}
+
+/* Color Themes */
+.light {
+  color: white;
+}
+
+.light .logoText,
+.light .logoIcon {
+  color: white;
+}
+
+.light .enquiryBtn {
+  color: white;
+  border-color: white;
+}
+
+.light .enquiryBtn:hover {
+  background: white;
+  color: #2c2a26;
+}
+
+.light .socialIcons a,
+.light .hamburger {
+  color: white;
+}
+
+.dark {
+  background: rgba(255, 255, 255, 0.95);
+  backdrop-filter: blur(10px);
+  box-shadow: 0 2px 20px rgba(0,0,0,0.05);
+  color: #2c2a26;
+}
+
+.dark .logoText,
+.dark .logoIcon {
+  color: #2c2a26;
+}
+
+.dark .enquiryBtn {
+  color: #2c2a26;
+  border-color: #2c2a26;
+}
+
+.dark .enquiryBtn:hover {
+  background: #2c2a26;
+  color: white;
+}
+
+.dark .socialIcons a,
+.dark .hamburger {
+  color: #2c2a26;
+}
+
+/* Logo */
+.logo {
+  display: flex;
+  align-items: center;
+  gap: 1.2rem;
+  cursor: pointer;
+  transition: all 0.3s ease;
+}
+
+.logo:hover {
+  opacity: 0.8;
+  transform: translateX(5px);
+}
+
+.logoCircle {
+  width: 50px;
+  height: 50px;
+  border-radius: 50%;
+  overflow: hidden;
+  border: 1px solid rgba(203, 184, 157, 0.3);
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  background: white;
+  flex-shrink: 0;
+}
+
+.logoCircle img {
+  width: 100%;
+  height: 100%;
+  object-fit: cover;
+}
+
+.logoTextWrapper {
+  display: flex;
+  flex-direction: column;
+  gap: 0.2rem;
+}
+
+.logoTitle {
+  font-family: var(--font-serif);
+  font-size: 1.1rem;
+  font-weight: 400;
+  letter-spacing: 0.05em;
+  color: inherit;
+  line-height: 1;
+}
+
+.logoSubtitle {
+  font-family: var(--font-sans);
+  font-size: 0.65rem;
+  letter-spacing: 0.2em;
+  text-transform: uppercase;
+  color: #cbb89d;
+  font-weight: 500;
+}
+
+/* Enquiry Button */
+.enquiryBtn {
+  padding: 0.8rem 2rem;
+  border: 1.5px solid currentColor;
+  background: transparent;
+  font-family: var(--font-sans);
+  font-size: 0.9rem;
+  letter-spacing: 0.1em;
+  text-transform: uppercase;
+  cursor: pointer;
+  transition: all 0.3s ease;
+  border-radius: 4px;
+}
+
+/* Right Section (Social + Hamburger) */
+.rightSection {
+  display: flex;
+  align-items: center;
+  gap: 2rem;
+}
+
+/* Social Icons */
+.socialIcons {
+  display: flex;
+  gap: 1.5rem;
+  align-items: center;
+}
+
+.socialIcons a {
+  font-size: 1.2rem;
+  transition: opacity 0.3s ease;
+}
+
+.socialIcons a:hover {
+  opacity: 0.6;
+}
+
+/* Hamburger Menu Icon */
+.hamburger {
+  background: none;
+  border: none;
+  font-size: 1.5rem;
+  cursor: pointer;
+  transition: opacity 0.3s ease;
+  padding: 0;
+  display: flex;
+  align-items: center;
+}
+
+.hamburger:hover {
+  opacity: 0.6;
+}
+
+/* Menu Overlay */
+.menuOverlay {
+  position: fixed;
+  top: 0;
+  left: 0;
+  width: 100%;
+  height: 100vh;
+  background: rgba(10, 10, 10, 0.9);
+  backdrop-filter: blur(25px);
+  -webkit-backdrop-filter: blur(25px);
+  z-index: 2000;
+  opacity: 0;
+  visibility: hidden;
+  transform: translateY(-20px);
+  transition: all 0.6s cubic-bezier(0.16, 1, 0.3, 1);
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  justify-content: center;
+  padding: 3rem;
+}
+
+.menuOverlay.menuOpen {
+  opacity: 1;
+  visibility: visible;
+  transform: translateY(0);
+}
+
+.closeBtn {
+  position: absolute;
+  top: 2rem;
+  right: 3rem;
+  background: none;
+  border: none;
+  font-size: 2.5rem;
+  color: white;
+  cursor: pointer;
+  transition: transform 0.3s ease;
+  z-index: 2100;
+}
+
+.closeBtn:hover {
+  transform: rotate(90deg);
+}
+
+.menuNav {
+  display: flex;
+  flex-direction: column;
+  gap: 2rem;
+  align-items: center;
+  text-align: center;
+}
+
+.menuNav button {
+  background: none;
+  border: none;
+  font-family: var(--font-serif);
+  font-size: clamp(2.5rem, 8vw, 4.5rem);
+  color: rgba(255, 255, 255, 0.4);
+  cursor: pointer;
+  transition: all 0.4s ease;
+  padding: 0.5rem 0;
+  font-weight: 300;
+  letter-spacing: -0.02em;
+  display: flex;
+  align-items: center;
+  gap: 1.5rem;
+}
+
+.navNumber {
+  font-family: var(--font-sans);
+  font-size: 0.9rem;
+  letter-spacing: 0.2em;
+  color: #cbb89d;
+  opacity: 0;
+  transform: translateX(-10px);
+  transition: all 0.4s ease;
+}
+
+.menuNav button:hover {
+  color: white;
+  transform: scale(1.05);
+}
+
+.menuNav button:hover .navNumber {
+  opacity: 1;
+  transform: translateX(0);
+}
+
+.menuFooter {
+  position: absolute;
+  bottom: 4rem;
+  left: 0;
+  right: 0;
+  padding: 0 4rem;
+  display: flex;
+  justify-content: space-between;
+  align-items: flex-end;
+  color: rgba(255, 255, 255, 0.5);
+  font-family: var(--font-sans);
+  font-size: 0.8rem;
+  text-transform: uppercase;
+  letter-spacing: 0.1em;
+}
+
+.menuContact p {
+  margin: 0.5rem 0;
+}
+
+.menuSocials {
+  display: flex;
+  gap: 2rem;
+}
+
+.menuSocials a {
+  color: inherit;
+  text-decoration: none;
+  transition: color 0.3s ease;
+}
+
+.menuSocials a:hover {
+  color: #cbb89d;
+}
+
+/* Responsive */
+@media (max-width: 1200px) {
+  .logoText {
+    display: none;
+  }
+}
+
+@media (max-width: 768px) {
+  .header {
+    padding: 1rem 1.5rem;
+  }
+
+  .logo {
+    gap: 0.8rem;
+  }
+
+  .logoCircle {
+    width: 35px;
+    height: 35px;
+  }
+
+  .logoTitle {
+    font-size: 0.9rem;
+  }
+
+  .logoSubtitle {
+    font-size: 0.55rem;
+    letter-spacing: 0.15em;
+  }
+
+  .enquiryBtn {
+    display: none;
+  }
+
+  .socialIcons {
+    display: none;
+  }
+  
+  .menuFooter {
+    flex-direction: column;
+    align-items: center;
+    gap: 2rem;
+    text-align: center;
+    bottom: 2rem;
+  }
+  
+  .rightSection {
+    gap: 1rem;
+  }
+
+  .closeBtn {
+    right: 1.5rem;
+    top: 1.5rem;
+  }
+}
